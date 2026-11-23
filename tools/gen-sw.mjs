@@ -1,6 +1,7 @@
 // 生成 sw.js 的缓存文件列表：node tools/gen-sw.mjs
 import { readdirSync, statSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { posix } from 'node:path';
+const join = posix.join;
 import { createHash } from 'node:crypto';
 
 const walk = (d) => readdirSync(d).flatMap((f) => {
