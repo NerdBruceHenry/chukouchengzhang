@@ -1,0 +1,13 @@
+{
+  "name": "出口成章 · 中文表达成长工具",
+  "short_name": "出口成章",
+  "description": "遣词造句、阅读、写作、口才与沟通训练",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf6ee",
+  "theme_color": "#c2412d",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
