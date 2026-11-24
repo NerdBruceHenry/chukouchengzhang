@@ -43,8 +43,9 @@ self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
 });
 
+// 同一网址下还有别的工具，只清理自己的旧缓存
 self.addEventListener('activate', (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('kcz-') && k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
 // 网络优先（保证更新），离线时用缓存
